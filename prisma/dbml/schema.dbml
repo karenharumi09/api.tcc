@@ -1,0 +1,61 @@
+//// ------------------------------------------------------
+//// THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+//// ------------------------------------------------------
+
+Table users {
+  id String [pk]
+  name String [not null]
+  email String [not null]
+  password String [not null]
+  created_at DateTime [default: `now()`]
+  updated_at DateTime [default: `now()`]
+}
+
+Table categories {
+  id String [pk]
+  name String [not null]
+  created_at DateTime [default: `now()`]
+  updated_at DateTime [default: `now()`]
+  products products [not null]
+}
+
+Table products {
+  id String [pk]
+  name String [not null]
+  price String [not null]
+  description String [not null]
+  banner String [not null]
+  created_at DateTime [default: `now()`]
+  updated_at DateTime [default: `now()`]
+  category categories [not null]
+  category_id String [not null]
+  Item items [not null]
+}
+
+Table orders {
+  id String [pk]
+  table Int [not null]
+  status Boolean [not null, default: false]
+  draft Boolean [not null, default: true]
+  name String
+  created_at DateTime [default: `now()`]
+  updated_at DateTime [default: `now()`]
+  items items [not null]
+}
+
+Table items {
+  id String [pk]
+  amount Int [not null]
+  created_at DateTime [default: `now()`]
+  updated_at DateTime [default: `now()`]
+  order orders [not null]
+  order_id String [not null]
+  product products [not null]
+  product_id String [not null]
+}
+
+Ref: products.category_id > categories.id
+
+Ref: items.order_id > orders.id
+
+Ref: items.product_id > products.id
