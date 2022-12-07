@@ -19,4 +19,6 @@ router.get('/me', Authenticated ,DetailUserController.handle)
 // Rotas Categoria
 
 
+
+
 export { router }
