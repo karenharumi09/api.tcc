@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { CreateCategoryController } from "./Controllers/Category/CreateCategoryController";
+import { ListCategoryController } from "./Controllers/Category/ListCategoryController";
 
 
 import { AuthUserController } from "./Controllers/User/AuthUserController";
@@ -20,6 +21,8 @@ router.get('/me', Authenticated ,DetailUserController.handle)
 // Rotas Categoria
 
 router.post('/category/create', Authenticated, CreateCategoryController.handle)
+router.get('/category/list', Authenticated, ListCategoryController.handle)
+
 
 
 export { router }
