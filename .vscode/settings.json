@@ -1,17 +1,6 @@
 {
     "files.exclude": {
-        "node_modules": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
-        "**/.DS_Store": true,
-        "**/Thumbs.db": true,
-        "**/package*": true,
-        "**/User*": true,
-        "**/Category*": true,
-        "**/Produ*": true,
-        "**/Middlewares": true,
-
+        "node_modules": true
     },
     "cSpell.language": "en,pt,pt-BR",
     "cSpell.words": [

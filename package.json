@@ -22,7 +22,6 @@
   "dependencies": {
     "@aws-sdk/client-s3": "^3.224.0",
     "@prisma/client": "^4.6.1",
-    "aws-sdk": "^2.1269.0",
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",

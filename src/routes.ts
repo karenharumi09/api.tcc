@@ -17,6 +17,11 @@ import { ListProductByCategoryController } from "./Controllers/Product/ListByCat
 import { CreateOrderController } from "./Controllers/Order/CreateOrderController";
 import { DeleteOrderController } from "./Controllers/Order/DeleteOrderController";
 import { AddItemController } from "./Controllers/Order/AddItemController";
+import { DeleteItemController } from "./Controllers/Order/DeleteItemController";
+import { UpdateOrderStatusController } from "./Controllers/Order/UpdateOrderStatusController";
+import { ListOrdersController } from "./Controllers/Order/ListOrdersController";
+import { DetailOrderController } from "./Controllers/Order/DetailOrderController";
+import { FinishOrderController } from "./Controllers/Order/FinishOrderController";
 
 const router = Router()
 
@@ -46,8 +51,17 @@ router.get('/category/product', Authenticated, ListProductByCategoryController.h
 // Rotas de Pedido
 
 router.post('/order/create', Authenticated, CreateOrderController.handle)
-router.delete('/order/delete', Authenticated, DeleteOrderController.handle)
+router.delete('/order/remove', Authenticated, DeleteOrderController.handle)
 
 router.post('/order/add', Authenticated, AddItemController.handle)
+router.delete('/order/remove', Authenticated, DeleteItemController.handle)
+
+router.put('/order/status', Authenticated, UpdateOrderStatusController.handle)
+
+router.get('/orders', Authenticated, ListOrdersController.handle)
+
+router.get('/order/detail', Authenticated, DetailOrderController.handle)
+
+router.put('/order/finish', Authenticated, FinishOrderController.handle)
 
 export { router }
