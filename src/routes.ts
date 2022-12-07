@@ -13,6 +13,7 @@ import { Authenticated } from "./Middlewares/Authenticated";
 
 import multerConfig from './config/multer'
 import multer from "multer";
+import { ListProductByCategoryController } from "./Controllers/Product/ListByCategoryController";
 
 const router = Router()
 
@@ -37,5 +38,7 @@ router.get('/category/list', Authenticated, ListCategoryController.handle)
 // Rotas de Produtos
 
 router.post('/product/create', Authenticated, multer(multerConfig).single("file"), CreateProductController.handle)
+router.get('/category/product', Authenticated, ListProductByCategoryController.handle )
+
 
 export { router }
