@@ -8,8 +8,9 @@ const DetailUserService = {
             where: { id: user_id }, 
             select: {
                 id: true,
+                name: true,
                 email: true,
-                password: true
+                
             }
         })
 
