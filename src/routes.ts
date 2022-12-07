@@ -14,6 +14,9 @@ import { Authenticated } from "./Middlewares/Authenticated";
 import multerConfig from './config/multer'
 import multer from "multer";
 import { ListProductByCategoryController } from "./Controllers/Product/ListByCategoryController";
+import { CreateOrderController } from "./Controllers/Order/CreateOrderController";
+import { DeleteOrderController } from "./Controllers/Order/DeleteOrderController";
+import { AddItemController } from "./Controllers/Order/AddItemController";
 
 const router = Router()
 
@@ -40,5 +43,11 @@ router.get('/category/list', Authenticated, ListCategoryController.handle)
 router.post('/product/create', Authenticated, multer(multerConfig).single("file"), CreateProductController.handle)
 router.get('/category/product', Authenticated, ListProductByCategoryController.handle )
 
+// Rotas de Pedido
+
+router.post('/order/create', Authenticated, CreateOrderController.handle)
+router.delete('/order/delete', Authenticated, DeleteOrderController.handle)
+
+router.post('/order/add', Authenticated, AddItemController.handle)
 
 export { router }

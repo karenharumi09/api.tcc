@@ -9,7 +9,9 @@
         "**/package*": true,
         "**/User*": true,
         "**/Category*": true,
+        "**/Produ*": true,
         "**/Middlewares": true,
+
     },
     "cSpell.language": "en,pt,pt-BR",
     "cSpell.words": [
