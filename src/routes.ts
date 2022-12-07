@@ -15,7 +15,6 @@ import multerConfig from './config/multer'
 import multer from "multer";
 
 const router = Router()
-const upload = multer(multerConfig.upload('./temp'))
 
 
 
@@ -37,6 +36,6 @@ router.get('/category/list', Authenticated, ListCategoryController.handle)
 
 // Rotas de Produtos
 
-router.post('/product/create', Authenticated, upload.single("file"), CreateProductController.handle)
+router.post('/product/create', Authenticated, multer(multerConfig).single("file"), CreateProductController.handle)
 
 export { router }
