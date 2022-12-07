@@ -4,7 +4,9 @@ import { CreateCategoryService } from "../../Services/Category/CreateCategorySer
 const CreateCategoryController = {
     async handle(req: Request, res: Response) {
         
-        const response = await CreateCategoryService.execute()
+        const { name } = req.body;
+
+        const response = await CreateCategoryService.execute({ name })
         return res.json(response)
     }
 }

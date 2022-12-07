@@ -27,7 +27,7 @@ model User {
 
 model Category {
   id         String    @id @default(uuid())
-  name       String
+  name       String    @unique
   created_at DateTime? @default(now())
   updated_at DateTime? @default(now())
 
@@ -47,8 +47,8 @@ model Product {
 
   category    Category @relation(fields: [category_id], references: [id])
   category_id String
-  
-  Item        Item[]
+
+  Item Item[]
 
   @@map("products")
 }

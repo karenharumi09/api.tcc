@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { CreateCategoryController } from "./Controllers/Category/CreateCategoryController";
 
 
 import { AuthUserController } from "./Controllers/User/AuthUserController";
@@ -18,7 +19,7 @@ router.get('/me', Authenticated ,DetailUserController.handle)
 
 // Rotas Categoria
 
-
+router.post('/category/create', Authenticated, CreateCategoryController.handle)
 
 
 export { router }
