@@ -13,7 +13,7 @@ const CreateUserService = {
 
 
         if(!email) throw new Error('Email Inválido')
-
+        if(password == '') throw new Error("Digite Senha")
         const userAlreadyExists = await prismaClient.user.findFirst({
             where: {
                 email
