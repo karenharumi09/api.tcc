@@ -8,6 +8,7 @@ interface ItemRequest {
 
 const DeleteItemService = {
     async execute({ item_id }: ItemRequest) {
+      
       const item = await prismaClient.item.delete({
         where: {
           id: item_id

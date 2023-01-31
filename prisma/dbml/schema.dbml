@@ -2,60 +2,60 @@
 //// THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 //// ------------------------------------------------------
 
-Table users {
+Table Usuarios {
   id String [pk]
-  name String [not null]
+  nome String [not null]
   email String [not null]
-  password String [not null]
-  created_at DateTime [default: `now()`]
-  updated_at DateTime [default: `now()`]
+  senha String [not null]
+  criado_em DateTime [default: `now()`]
+  atualizado_em DateTime [default: `now()`]
 }
 
-Table categories {
+Table Categorias {
   id String [pk]
-  name String [not null]
-  created_at DateTime [default: `now()`]
-  updated_at DateTime [default: `now()`]
-  products products [not null]
+  nome String [not null]
+  criado_em DateTime [default: `now()`]
+  atualizado_em DateTime [default: `now()`]
+  produtos produtos [not null]
 }
 
-Table products {
+Table produtos {
   id String [pk]
-  name String [not null]
-  price String [not null]
-  description String [not null]
-  banner String [not null]
-  created_at DateTime [default: `now()`]
-  updated_at DateTime [default: `now()`]
-  category categories [not null]
-  category_id String [not null]
+  nome String [not null]
+  preço String [not null]
+  descrição String [not null]
+  imagem String [not null]
+  criado_em DateTime [default: `now()`]
+  atualizado_em DateTime [default: `now()`]
+  categoria Categorias [not null]
+  categoria_id String [not null]
   Item items [not null]
 }
 
-Table orders {
+Table pedidos {
   id String [pk]
-  table Int [not null]
+  mesa Int [not null]
   status Boolean [not null, default: false]
-  draft Boolean [not null, default: true]
-  name String
-  created_at DateTime [default: `now()`]
-  updated_at DateTime [default: `now()`]
+  rascunho Boolean [not null, default: true]
+  nome String
+  criado_em DateTime [default: `now()`]
+  atualizado_em DateTime [default: `now()`]
   items items [not null]
 }
 
 Table items {
   id String [pk]
   amount Int [not null]
-  created_at DateTime [default: `now()`]
-  updated_at DateTime [default: `now()`]
-  order orders [not null]
-  order_id String [not null]
-  product products [not null]
-  product_id String [not null]
+  criado_em DateTime [default: `now()`]
+  atualizado_em DateTime [default: `now()`]
+  pedido pedidos [not null]
+  pedido_id String [not null]
+  produto produtos [not null]
+  produto_id String [not null]
 }
 
-Ref: products.category_id > categories.id
+Ref: produtos.categoria_id > Categorias.id
 
-Ref: items.order_id > orders.id
+Ref: items.pedido_id > pedidos.id
 
-Ref: items.product_id > products.id
+Ref: items.produto_id > produtos.id

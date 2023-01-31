@@ -5,10 +5,6 @@ generator client {
   provider = "prisma-client-js"
 }
 
-generator erd {
-  provider = "prisma-erd-generator"
-}
-
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
@@ -19,6 +15,7 @@ model User {
   name       String
   email      String
   password   String
+  is_admin    Boolean   @default(false)
   created_at DateTime? @default(now())
   updated_at DateTime? @default(now())
 
@@ -45,7 +42,7 @@ model Product {
   created_at  DateTime? @default(now())
   updated_at  DateTime? @default(now())
 
-  category    Category @relation(fields: [category_id], references: [id])
+  category    Category @relation(fields: [category_id], references: [id], onDelete: Cascade)
   category_id String
 
   Item Item[]

@@ -20,7 +20,7 @@ const storageTypes = {
     s3: new S3Client({
       region: process.env.AWS_DEFAULT_REGION
     }),
-    bucket: 'uploadviczz',
+    bucket: 'kvorderupload',
     contentType: multerS3.AUTO_CONTENT_TYPE,
     acl: 'public-read',
     key: (request, file, callback) => {
